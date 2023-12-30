@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ProfileDashboard from './pages/ProfileDashboard';
+import PricingPage from './pages/PricingPage';
+import GraphDetailsPage from './pages/GraphDetailsPage';
+import CreateNewGraph from './pages/CreateNewGraph';
+import AccountSettings from './pages/AccountSettings';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<ProfileDashboard />} />
+        <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/graph-details" element={<GraphDetailsPage />} />
+        <Route path="/create-graph" element={<CreateNewGraph />} />
+        <Route path="/account-settings" element={<AccountSettings />} />
+      </Routes>
+    </Router>
   );
 }
 
